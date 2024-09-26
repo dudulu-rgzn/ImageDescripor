@@ -67,3 +67,5 @@ To do
 [Fine-tuning FLUX.1[dev]](https://github.com/bghira/SimpleTuner/blob/main/documentation/quickstart/FLUX.md)
 
 [dataset config.json](https://github.com/bghira/SimpleTuner/blob/main/documentation/DATALOADER.md)
+
+[X-AnyLabeling](https://github.com/CVHub520/X-AnyLabeling/tree/main)
