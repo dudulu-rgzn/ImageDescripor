@@ -1,5 +1,5 @@
 from typing import Any
-from basepipeline import BaseComposePipeline, BaseCropPipeline, BaseCaptionPipeline
+from pipeline.basepipeline import BaseComposePipeline, BaseCropPipeline, BaseCaptionPipeline
 
 class CustomComposePipeline(BaseComposePipeline):
     def __init__(self,cropPipeline:BaseCropPipeline,captionPipeline:BaseCaptionPipeline) -> None:

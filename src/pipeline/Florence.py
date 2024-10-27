@@ -12,7 +12,7 @@ torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32
 
 class FlorencePipeline(BaseCaptionPipeline):
     def __init__(self,path:str) -> None:
-        self.model = AutoModelForCausalLM.from_pretrained(path, torch_dtype=torch_dtype, trust_remote_code=True,).to(device)
+        self.model = AutoModelForCausalLM.from_pretrained(path, torch_dtype=torch_dtype, trust_remote_code=True).to(device)
         self.processor = AutoProcessor.from_pretrained(path, trust_remote_code=True)
         self.cropPipeline = FlorenceCropPipeline(model=self.model,processor=self.processor)
         self.captionPipeline = FlorenceCaptionPipeline(model=self.model,processor=self.processor)
@@ -21,7 +21,7 @@ class FlorencePipeline(BaseCaptionPipeline):
         crop_image = self.cropPipeline(image)
         caption = self.captionPipeline(crop_image)
         return crop_image,caption
-    
+
     
 class FlorenceCropPipeline(BaseCaptionPipeline):
     
@@ -36,7 +36,7 @@ class FlorenceCropPipeline(BaseCaptionPipeline):
         """
         task_prompt = "<CAPTION_TO_PHRASE_GROUNDING>" # detection by text prompt
         prompt = task_prompt + text_input
-        inputs = self.processor(text=prompt, images=image, return_tensors="pt").to("cuda")
+        inputs = self.processor(text=prompt, images=image, return_tensors="pt").to(device, torch_dtype)
         generated_ids = self.model.generate(
             input_ids=inputs["input_ids"],
             pixel_values=inputs["pixel_values"],
@@ -51,9 +51,10 @@ class FlorenceCropPipeline(BaseCaptionPipeline):
             task=task_prompt,
             image_size=(image.width, image.height)
         )
-        
+        return parsed_answer
         
     def __call__(self, image : Image.Image) -> Image.Image:
+        print(self.florenceCropDetection(image=image,text_input="car"))
         return image
     
 class FlorenceCaptionPipeline(BaseCaptionPipeline):
@@ -68,7 +69,7 @@ class FlorenceCaptionPipeline(BaseCaptionPipeline):
         """
         task_prompt = "<MORE_DETAILED_CAPTION>" # detection by text prompt
         prompt = task_prompt
-        inputs = self.processor(text=prompt, images=image, return_tensors="pt").to("cuda")
+        inputs = self.processor(text=prompt, images=image, return_tensors="pt").to(device, torch_dtype)
         generated_ids = self.model.generate(
             input_ids=inputs["input_ids"],
             pixel_values=inputs["pixel_values"],

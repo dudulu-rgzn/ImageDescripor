@@ -1,7 +1,8 @@
 # model folder
-src/model/*
-!model/README.md
-!model/template-model.json
+src/models/
+models/
+!src/models/README.md
+!src/models/template-model.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
