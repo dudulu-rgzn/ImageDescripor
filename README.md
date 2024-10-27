@@ -63,6 +63,7 @@ This project is licensed under the [Apache License Version 2.0 License](https://
 To do
 
 ## Useful Links
+
 [Developer Discussions](https://github.com/dudulu-rgzn/ImageDescripor/discussions)
 
 [Fine-tuning FLUX.1[dev]](https://github.com/bghira/SimpleTuner/blob/main/documentation/quickstart/FLUX.md)
