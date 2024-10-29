@@ -33,15 +33,32 @@ add a caption by Vision model(as gpt4o BLIP 3 ...)
 
 ### Dependencies
 
-To do
+python >= 3.8
 
 ### Installing
 
-To do
+`git clone https://github.com/dudulu-rgzn/ImageDescripor.git`
+`python -m venv .venv`
+
+#### Activate environment
+
+##### Linux
+
+`source .venv/bin/activate`
+
+##### Windows
+
+`.venv/Scripts/activate.bat`
+
+#### Installing Python Dependencies
+
+`pip install -r requirements.txt`
 
 ### Executing program
 
-To do
+`cd src`
+edit config.py
+`python main.py`
 
 ## Help
 
@@ -53,6 +70,7 @@ To do
 
 ## Version History
 
+To do
 
 ## License
 
