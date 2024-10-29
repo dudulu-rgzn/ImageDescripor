@@ -1,9 +1,13 @@
-from PIL import Image
-
+from dataset import Dataset
 from pipeline import FlorencePipeline
-
-image = Image.open(r"dataset\raw\dev-dataset\car.jpg")
+from config import config
+                
+dataset = Dataset(config=config["dataset"])
 
 florencePipeline = FlorencePipeline(r"models\AI-ModelScope\Florence-2-large-ft")
-cropimage , text = florencePipeline(image=image)
-print(text)
+# cropimage , text = florencePipeline()
+# print(text)
+
+for image in dataset.get_images():
+    cropimage , text = florencePipeline(image)
+    print(text)
