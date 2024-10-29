@@ -1,0 +1,28 @@
+{
+    "Florence":[
+        {
+            "name":"microsoft/Florence-2-large-ft",
+            "is_downloaded":true,
+            "path":"models\\AI-ModelScope\\Florence-2-large-ft",
+            "Priority":"1"
+        },
+        {
+            "name":"microsoft/Florence-2-base-ft",
+            "is_downloaded":false,
+            "path":"",
+            "Priority":"2"
+        },
+        {
+            "name":"microsoft/Florence-2-large",
+            "is_downloaded":false,
+            "path":"",
+            "Priority":"3"
+        },
+        {
+            "name":"microsoft/Florence-2-base",
+            "is_downloaded":false,
+            "path":"",
+            "Priority":"4"
+        }
+    ]
+}
