@@ -37,7 +37,7 @@ python >= 3.8
 
 ### Installing
 
-`git clone https://github.com/dudulu-rgzn/ImageDescripor.git`
+`git clone https://github.com/dudulu-rgzn/ImageDescripor.git`  
 `python -m venv .venv`
 
 #### Activate environment

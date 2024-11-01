@@ -2,6 +2,7 @@
 /src/dataset/raw/
 !/src/dataset/raw/dev-dataset
 /src/dataset/processed/
+/src/dataset/output/
 # model folder
 /src/models/
 /models/

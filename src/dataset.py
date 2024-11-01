@@ -31,4 +31,7 @@ class Dataset:
     
     def get_images(self) -> Iterator:
         for image_path in self.images_path:
-            yield self._read_image(image_path)
+            yield image_path ,self._read_image(image_path)
+            
+    def output(self,image,path):
+        return 
