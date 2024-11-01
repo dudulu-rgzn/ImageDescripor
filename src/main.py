@@ -1,3 +1,5 @@
+from tqdm import tqdm
+
 from dataset import Dataset
 from pipeline import FlorencePipeline
 from config import config
@@ -10,7 +12,7 @@ florencePipeline = FlorencePipeline(r"models\AI-ModelScope\Florence-2-large-ft")
 # print(text)
 
 saver = DateSaver(config=config)
-for image_path,image in dataset.get_images():
+for image_path,image in tqdm(dataset.get_images(),total=len(dataset)):
     cropimage , text = florencePipeline(image)
     saver.save(image=cropimage,caption=text)
     
